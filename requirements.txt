@@ -8,7 +8,6 @@ google-cloud-aiplatform>=1.71.0 # Primary client for embeddings/models
 google-cloud-storage>=2.14.0 
 google-cloud-secret-manager>=2.18.1
 
-python_version = "3.11"
 # Vertex AI and ML
 # We use google-cloud-aiplatform for the client, and the standalone SDK for model calls.
 vertexai>=1.71.0 # Latest stable version of the new SDK
