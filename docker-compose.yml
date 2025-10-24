@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # Main Streamlit application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: conversational-360-app
+    ports:
+      - "8501:8501"
+    environment:
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - BQ_DATASET=${BQ_DATASET:-customer_360}
+      - GCP_REGION=${GCP_REGION:-us-central1}
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/service-account.json
+    volumes:
+      - ./:/app
+      - ./credentials:/app/credentials:ro
+      - streamlit-cache:/root/.streamlit
+    env_file:
+      - .env
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Jupyter notebook for development/analysis (optional)
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: conversational-360-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - BQ_DATASET=${BQ_DATASET:-customer_360}
+      - GCP_REGION=${GCP_REGION:-us-central1}
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/service-account.json
+    volumes:
+      - ./:/app
+      - ./credentials:/app/credentials:ro
+      - jupyter-data:/root/.jupyter
+    env_file:
+      - .env
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    restart: unless-stopped
+    networks:
+      - app-network
+
+volumes:
+  streamlit-cache:
+  jupyter-data:
+
+networks:
+  app-network:
+    driver: bridge

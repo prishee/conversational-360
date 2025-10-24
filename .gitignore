@@ -1,0 +1,241 @@
+# Conversational 360 - Git Ignore
+
+# ============================================================
+# ENVIRONMENT & SECRETS
+# ============================================================
+.env
+.env.local
+.env.production
+.env.*.local
+*.key
+*.pem
+service-account*.json
+credentials.json
+
+# ============================================================
+# PYTHON
+# ============================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.log
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# pytype
+.pytype/
+
+# ============================================================
+# GOOGLE CLOUD
+# ============================================================
+.gcloud/
+.config/gcloud/
+
+# ============================================================
+# STREAMLIT
+# ============================================================
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# ============================================================
+# IDEs
+# ============================================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================================
+# OPERATING SYSTEM
+# ============================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+# ============================================================
+# DATA & CACHE
+# ============================================================
+# Data files
+data/
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.json
+*.jsonl
+*.pickle
+*.pkl
+
+# Exceptions - keep example/test data
+!data/examples/
+!data/test/
+
+# Cache
+.cache/
+*.cache
+cache/
+tmp/
+temp/
+
+# Logs
+logs/
+*.log
+log.txt
+
+# ============================================================
+# DOCUMENTATION
+# ============================================================
+# Build artifacts
+docs/_build/
+docs/.doctrees/
+
+# ============================================================
+# MISC
+# ============================================================
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+
+# Node (if using any JS tools)
+node_modules/
+package-lock.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated files
+generated/
+output/
+
+# Thumbnails
+thumbnails/
+
+# Archive
+archive/
+deprecated/
