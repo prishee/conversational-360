@@ -1,0 +1,4 @@
+# .streamlit/config.toml
+[runner]
+# This correctly sets the Python version to 3.11 for Streamlit Cloud
+python_version = "3.11"
